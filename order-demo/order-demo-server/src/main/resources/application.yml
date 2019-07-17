@@ -1,0 +1,44 @@
+
+server:
+  port: 8083
+info:
+  author: Haha-order
+  version: @project.version@
+  name: @project.artifactId@
+  tags:
+    environment: test
+
+nacos:
+  server-address: 10.242.139.237
+  port: 8848
+
+spring:
+  application:
+    name: order-demo
+  cloud:
+    nacos.discovery.server-addr: ${nacos.server-address}:${nacos.port}
+  boot:
+     admin:
+        client:
+          instance:
+            prefer-ip: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #暴露所有端点 默认是info,health
+
+
+#dubbo 的相关配置
+
+
+dubbo:
+  protocol:
+    name: dubbo
+  scan:
+    base-packages: com.xu.mircoservice.orderdemo.server.service
+  registry:
+    address: nacos://${nacos.server-address}:${nacos.port}
+
+#order.server.defaultversion: 1.0

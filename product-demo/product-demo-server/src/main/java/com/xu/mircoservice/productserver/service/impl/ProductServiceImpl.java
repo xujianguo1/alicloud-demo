@@ -5,11 +5,10 @@ import com.xu.mircoservice.productclient.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Service;
 import org.apache.dubbo.rpc.RpcContext;
-import org.slf4j.Logger;
 
 import java.math.BigDecimal;
 
-@Service(version = "${product.server.defaultversion}")
+@Service
 @Slf4j
 public class ProductServiceImpl implements ProductService {
     @Override
