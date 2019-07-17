@@ -1,0 +1,44 @@
+
+server:
+  port: 8082
+info:
+  author: Haha-prod
+  version: @project.version@
+  name: @project.artifactId@
+  tags:
+    environment: test
+
+
+spring:
+  application:
+    name: product-demo
+  cloud:
+    nacos.discovery.server-addr: 10.242.139.237:8848
+  boot:
+     admin:
+        client:
+          #url: http://10.242.138.217:8080
+          instance:
+            prefer-ip: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #暴露所有端点 默认是info,health
+
+
+#dubbo 的相关配置
+
+nacos:
+  server-address: 10.242.139.237
+  port: 8848
+dubbo:
+  protocol:
+    name: dubbo
+  scan:
+    base-packages: com.xu.mircoservice.productserver.service
+  registry:
+    address: nacos://${nacos.server-address}:${nacos.port}
+
+product.server.defaultversion: 1.0

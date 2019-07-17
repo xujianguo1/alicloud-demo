@@ -1,0 +1,34 @@
+server:
+    port: 8080
+
+application:
+    name: admin-server
+
+spring:
+  application:
+    name: admin-server
+  cloud:
+    nacos.discovery.server-addr: 10.242.139.237:8848
+  boot:
+     admin:
+       client:
+          url: http://127.0.0.1:8080
+          instance:
+            prefer-ip: true
+            metadata:
+              tags:
+                environment: test
+info:
+  author: Just-Demo
+  version: @project.version@
+  name: @project.artifactId@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #暴露所有端点 默认是info,health
+      #base-path: /  # 比较重要,默认 /actuator spring-boot-admin 扫描不到
+
+    health:
+      show-details: always
