@@ -1,0 +1,45 @@
+
+server:
+  port: 8084
+info:
+  author: Haha-comment
+  version: @project.version@
+  name: @project.artifactId@
+  tags:
+    environment: test
+
+nacos:
+  server-address: 10.242.139.237
+  port: 8848
+
+spring:
+  application:
+    name: comment-demo
+  cloud:
+    nacos.discovery.server-addr: ${nacos.server-address}:${nacos.port}
+  boot:
+     admin:
+        client:
+          instance:
+            prefer-ip: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #暴露所有端点 默认是info,health
+
+
+#dubbo 的相关配置
+
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20884  #端口要变，不然同1台机器启动不了，后面保持与tomcat 端口一致
+  scan:
+    base-packages: com.xu.mircoservice.commeserver.service
+  registry:
+    address: nacos://${nacos.server-address}:${nacos.port}
+
+#comment.server.defaultversion: 1.0

@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductById(Long productId) {
-        log.info("我收到了一个消息。getProductById= ",productId);
+        log.info("我收到了一个消息。getProductById={} ",productId);
         Product p =createProduct(productId);
         p.setExtInfo("process Ip="+RpcContext.getContext().getLocalAddressString());
         log.info("getProductById 处理完成，要返回了。。" );
@@ -23,6 +23,7 @@ public class ProductServiceImpl implements ProductService {
     private Product createProduct(Long productId){
         Product p = new Product();
         p.setProductId(productId);
+        p.setProductName("我的名字跟Id有关："+productId);
         p.setCatName("玩具");
         p.setSkuId("sku-1-"+productId);
         p.setPrice(new BigDecimal(11.1));

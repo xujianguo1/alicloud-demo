@@ -4,18 +4,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
+import java.util.Date;
 
 @NoArgsConstructor
 @Data
-public class ProductDetailVo implements Serializable {
+public class DetailCommentVo implements Serializable {
     private Long productId;
-    private String skuId;
+    private Long userId;
+    private Long subOrderId;
+
     private String productName;
     private String catName;
-    private BigDecimal price;
-    private Long stockNum;
-    private List<DetailCommentVo> commentVoList;
 
+    private Date commentTime;
+    private String content;
 }

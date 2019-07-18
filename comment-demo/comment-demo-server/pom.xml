@@ -3,13 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>order-demo</artifactId>
+        <artifactId>comment-demo</artifactId>
         <groupId>com.xu.mircoservice</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>order-demo-server</artifactId>
+    <artifactId>comment-demo-server</artifactId>
+
     <properties>
         <java.version>1.8</java.version>
         <spring-boot-admin.version>2.1.5</spring-boot-admin.version>
@@ -24,7 +25,12 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.xu.mircoservice</groupId>
+            <artifactId>product-demo-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
@@ -95,11 +101,12 @@
         </dependency>
         <dependency>
             <groupId>com.xu.mircoservice</groupId>
-            <artifactId>product-demo-client</artifactId>
+            <artifactId>comment-demo-client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
 
     <dependencyManagement>
         <dependencies>
@@ -121,5 +128,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
