@@ -3,7 +3,10 @@ package com.xu.mircoservice.detailserver.controller;
 import com.xu.mircoservice.detailclient.model.ProductDetailVo;
 import com.xu.mircoservice.detailclient.service.ProductDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
