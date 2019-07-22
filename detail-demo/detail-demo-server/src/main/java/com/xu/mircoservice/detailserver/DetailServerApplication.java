@@ -13,11 +13,11 @@ public class DetailServerApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx= SpringApplication.run(DetailServerApplication.class, args);
         //ctx.getBean("productDetailService")
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            System.in.read();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }
