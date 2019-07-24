@@ -1,0 +1,34 @@
+
+server:
+  port: 8083
+
+
+nacos:
+  server-address: 127.0.0.1
+  port: 8848
+
+spring:
+  profiles:
+    active: prod #指定开发环境，profile
+  application:
+    name: order-demo #应用名,默认的dataId前缀
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.server-address}:${nacos.port} #nacos地址
+        file-extension: yml  #应用扩展名.
+        shared-dataids: constants.yml,url-${spring.profiles.active}.yml  #shareDataId 配置，dataIds是写死的，可以手动引入profile
+        ext-config[0].dataid: common.yml   #ext-config[0] 的dataId，这里会直接查找common.yml ,profile配置不起作用
+        ext-config[0].group: common-config  # ext-config[0] 的group
+        ext-config[1].dataid: ${spring.application.name}_biz.yml  #配置ext-config[1]配置文件，不写group则用默认分组
+        ext-config[1].refresh: true   #是否 动态刷新配置文件
+
+# Spring Cloud Alibaba Nacos Config 目前提供了三种配置能力从 Nacos 拉取相关的配置。
+#
+# A: 通过 spring.cloud.nacos.config.shared-dataids 支持多个共享 Data Id 的配置
+#
+# B: 通过 spring.cloud.nacos.config.ext-config[n].data-id 的方式支持多个扩展 Data Id 的配置
+#
+# C: 通过内部相关规则(应用名、应用名+ Profile )自动生成相关的 Data Id 配置
+#
+# 当三种方式共同使用时，他们的一个优先级关系是:A < B < C

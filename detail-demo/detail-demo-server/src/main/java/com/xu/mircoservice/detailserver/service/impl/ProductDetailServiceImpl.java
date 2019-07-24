@@ -16,13 +16,11 @@ import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Slf4j
 //spring 与dubbo的service 同时存在， BeanFacotry注册时覆盖一个spring 的service，不写Spring Service注解同项目其他地方调用，IDE会报错，实际会获取到。
 //其他地方写Reference引用，又会走RPC ，消耗性能
 @org.apache.dubbo.config.annotation.Service
 @org.springframework.stereotype.Service
-
-@Slf4j
 public class ProductDetailServiceImpl implements ProductDetailService {
 
     @Reference

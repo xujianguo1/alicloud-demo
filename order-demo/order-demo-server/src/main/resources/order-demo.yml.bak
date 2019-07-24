@@ -1,23 +1,26 @@
 
 server:
-  port: 8082
+  port: 8083
 info:
-  author: Haha-prod
+  author: Haha-order
   version: @project.version@
   name: @project.artifactId@
   tags:
     environment: test
 
+nacos:
+  server-address: 127.0.0.1
+  port: 8848
 
 spring:
   application:
-    name: product-demo
+    name: order-demo
+
   cloud:
-    nacos.discovery.server-addr: 127.0.0.1:8848 #10.242.139.237:8848
+    nacos.discovery.server-addr: ${nacos.server-address}:${nacos.port}
   boot:
      admin:
         client:
-          #url: http://10.242.138.217:8080
           instance:
             prefer-ip: true
 
@@ -30,15 +33,14 @@ management:
 
 #dubbo 的相关配置
 
-nacos:
-  server-address: 127.0.0.1
-  port: 8848
+
 dubbo:
   protocol:
     name: dubbo
+    port: 20883
   scan:
-    base-packages: com.xu.mircoservice.productserver.service
+    base-packages: com.xu.mircoservice.orderdemo.server.service
   registry:
     address: nacos://${nacos.server-address}:${nacos.port}
 
-product.server.defaultversion: 1.0
+#order.server.defaultversion: 1.0

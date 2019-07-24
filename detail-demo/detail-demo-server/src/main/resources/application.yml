@@ -1,6 +1,7 @@
 
 server:
   port: 8085
+  name: server_detail-demo
 info:
   author: Haha-detail
   version: @project.version@
