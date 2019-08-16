@@ -1,8 +1,10 @@
 package com.xu.mircoservice.detailserver;
+import com.alibaba.csp.sentinel.annotation.aspectj.SentinelResourceAspect;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 
@@ -18,6 +20,11 @@ public class DetailServerApplication {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    @Bean
+    public SentinelResourceAspect sentinelResourceAspect() {
+        return new SentinelResourceAspect();
     }
 
 }

@@ -4,8 +4,7 @@ server:
   name: server_detail-demo
 info:
   author: Haha-detail
-  version: @project.version@
-  name: @project.artifactId@
+  name: detail-demo
   tags:
     environment: test
 
@@ -17,7 +16,21 @@ spring:
   application:
     name: detail-demo
   cloud:
-    nacos.discovery.server-addr: ${nacos.server-address}:${nacos.port}
+    nacos:
+      discovery:
+        server-addr: ${nacos.server-address}:${nacos.port}
+      config:
+        server-addr: ${nacos.server-address}:${nacos.port} #nacos地址
+        file-extension: yml
+    #sentinel 配置
+    sentinel:
+        transport:
+          port: 7085
+          dashboard: 127.0.0.1:7070
+        datasource.ds.nacos:
+          server-addr: ${nacos.server-address}:${nacos.port}
+          dataId: ${spring.application.name}-sentinel
+          rule-type: flow
   boot:
      admin:
         client:
