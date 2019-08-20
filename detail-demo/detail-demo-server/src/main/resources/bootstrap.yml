@@ -9,7 +9,7 @@ info:
     environment: test
 
 nacos:
-  server-address: 127.0.0.1 #10.242.139.237
+  server-address: 10.242.138.155 #10.242.139.237
   port: 8848
 
 spring:
@@ -26,7 +26,7 @@ spring:
     sentinel:
         transport:
           port: 7085
-          dashboard: 127.0.0.1:7070
+          dashboard: 10.242.138.155:7070
         datasource.ds.nacos:
           server-addr: ${nacos.server-address}:${nacos.port}
           dataId: ${spring.application.name}-sentinel

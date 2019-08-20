@@ -4,7 +4,7 @@ server:
 
 
 nacos:
-  server-address: 127.0.0.1
+  server-address: 10.242.138.155
   port: 8848
 
 spring:

@@ -9,7 +9,7 @@ info:
     environment: test
 
 nacos:
-  server-address: 127.0.0.1 #10.242.139.237
+  server-address: 10.242.138.155 #10.242.139.237
   port: 8848
 
 spring:

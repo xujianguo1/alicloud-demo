@@ -13,4 +13,15 @@ public class ProductDemoApplication {
         SpringApplication.run(ProductDemoApplication.class, args);
     }
 
+    static{
+        initSentinelProperty();
+    }
+
+    private static void initSentinelProperty(){
+        System.setProperty("project.name","product-demo");
+        System.setProperty("csp.sentinel.dashboard.server","10.242.138.155:7070");
+        System.setProperty("csp.sentinel.api.port","7082");
+        System.setProperty("java.net.preferIPv4Stack","true");
+    }
+
 }
