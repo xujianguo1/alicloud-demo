@@ -4,7 +4,7 @@ server:
 
 
 nacos:
-  server-address: 10.242.138.155
+  server-address: 192.168.55.1
   port: 8848
 
 spring:
@@ -31,3 +31,14 @@ spring:
     # C: 通过内部相关规则(应用名、应用名+ Profile )自动生成相关的 Data Id 配置
     #
     # 当三种方式共同使用时，他们的一个优先级关系是:A < B < C
+
+    #sentinel 配置
+    sentinel:
+        transport:
+          port: 7083 #本地端口，用于dashboard 推送规则
+          dashboard: 127.0.0.1:7070 # dashboard 控制台
+        datasource.ds.nacos:
+          server-addr: ${nacos.server-address}:${nacos.port}  #nacos地址
+          dataId: ${spring.application.name}-flow-rules  #规则配置 dataId
+          groupId: SENTINEL_GROUP   #规则的groupId
+          rule-type: flow    #规则类型

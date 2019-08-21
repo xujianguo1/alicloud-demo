@@ -20,6 +20,7 @@ import java.util.Map;
 @RequestMapping("/test")
 public class TestController {
 
+
     @Reference
     private ProductService productService;
 

@@ -16,7 +16,7 @@
         <spring-boot-admin.version>2.1.5</spring-boot-admin.version>
         <nacos-boot-start.version>0.9.0.RELEASE</nacos-boot-start.version>
         <dubbo.version>2.7.1</dubbo.version>
-        <sentinel.version>1.6.0</sentinel.version>
+        <sentinel.version>1.6.3</sentinel.version>
     </properties>
 
     <dependencies>

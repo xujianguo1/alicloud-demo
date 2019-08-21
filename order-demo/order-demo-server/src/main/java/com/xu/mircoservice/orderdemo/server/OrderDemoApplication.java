@@ -12,14 +12,4 @@ public class OrderDemoApplication {
         SpringApplication.run(OrderDemoApplication.class, args);
     }
 
-    static {
-        initSentinelProperty();
-    }
-    private static void initSentinelProperty(){
-        System.setProperty("project.name","order-demo");
-        System.setProperty("csp.sentinel.dashboard.server","10.242.138.155:7070");
-        System.setProperty("csp.sentinel.api.port","7083");
-        System.setProperty("java.net.preferIPv4Stack","true");
-    }
-
 }
